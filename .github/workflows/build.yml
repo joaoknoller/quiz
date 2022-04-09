@@ -21,6 +21,8 @@ jobs:
         run: npm run export
       - name: Add .nojekyll file
         run: touch ./out/.nojekyll
+      - name: Commit out folder
+        run: git commit -m \"Deploy gh-pages\" && git subtree push --prefix out origin gh-pages"
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
